@@ -10,7 +10,7 @@
 		309A165725E0B3F40019C41E /* WaitTimes WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 309A165625E0B3F40019C41E /* WaitTimes WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		309A165C25E0B3F50019C41E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309A165B25E0B3F50019C41E /* Assets.xcassets */; };
 		309A166325E0B3F50019C41E /* WaitTimes WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 309A166225E0B3F50019C41E /* WaitTimes WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		309A166825E0B3F50019C41E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A166725E0B3F50019C41E /* ContentView.swift */; };
+		309A166825E0B3F50019C41E /* WaitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A166725E0B3F50019C41E /* WaitListView.swift */; };
 		309A166A25E0B3F50019C41E /* WaitTimesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A166925E0B3F50019C41E /* WaitTimesApp.swift */; };
 		309A166C25E0B3F50019C41E /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A166B25E0B3F50019C41E /* ComplicationController.swift */; };
 		309A166E25E0B3F60019C41E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309A166D25E0B3F60019C41E /* Assets.xcassets */; };
@@ -18,6 +18,8 @@
 		309A168425E0B66D0019C41E /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A168325E0B66D0019C41E /* Facility.swift */; };
 		309A168925E0B6860019C41E /* OperatingHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A168825E0B6860019C41E /* OperatingHours.swift */; };
 		309A168E25E0B6BA0019C41E /* FacilityDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A168D25E0B6BA0019C41E /* FacilityDataModel.swift */; };
+		309A169C25E0BFA20019C41E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A169B25E0BFA20019C41E /* ErrorView.swift */; };
+		309A16A125E0BFB20019C41E /* FacilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A16A025E0BFB20019C41E /* FacilityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +70,7 @@
 		309A165B25E0B3F50019C41E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		309A165D25E0B3F50019C41E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		309A166225E0B3F50019C41E /* WaitTimes WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WaitTimes WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		309A166725E0B3F50019C41E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		309A166725E0B3F50019C41E /* WaitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitListView.swift; sourceTree = "<group>"; };
 		309A166925E0B3F50019C41E /* WaitTimesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTimesApp.swift; sourceTree = "<group>"; };
 		309A166B25E0B3F50019C41E /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		309A166D25E0B3F60019C41E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +79,8 @@
 		309A168325E0B66D0019C41E /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
 		309A168825E0B6860019C41E /* OperatingHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatingHours.swift; sourceTree = "<group>"; };
 		309A168D25E0B6BA0019C41E /* FacilityDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityDataModel.swift; sourceTree = "<group>"; };
+		309A169B25E0BFA20019C41E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		309A16A025E0BFB20019C41E /* FacilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +125,9 @@
 		309A166625E0B3F50019C41E /* WaitTimes WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				309A166725E0B3F50019C41E /* ContentView.swift */,
+				309A166725E0B3F50019C41E /* WaitListView.swift */,
+				309A16A025E0BFB20019C41E /* FacilityView.swift */,
+				309A169B25E0BFA20019C41E /* ErrorView.swift */,
 				309A166925E0B3F50019C41E /* WaitTimesApp.swift */,
 				309A168325E0B66D0019C41E /* Facility.swift */,
 				309A168D25E0B6BA0019C41E /* FacilityDataModel.swift */,
@@ -268,10 +274,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				309A166825E0B3F50019C41E /* ContentView.swift in Sources */,
+				309A166825E0B3F50019C41E /* WaitListView.swift in Sources */,
 				309A166A25E0B3F50019C41E /* WaitTimesApp.swift in Sources */,
 				309A168E25E0B6BA0019C41E /* FacilityDataModel.swift in Sources */,
 				309A168425E0B66D0019C41E /* Facility.swift in Sources */,
+				309A169C25E0BFA20019C41E /* ErrorView.swift in Sources */,
+				309A16A125E0BFB20019C41E /* FacilityView.swift in Sources */,
 				309A168925E0B6860019C41E /* OperatingHours.swift in Sources */,
 				309A166C25E0B3F50019C41E /* ComplicationController.swift in Sources */,
 			);

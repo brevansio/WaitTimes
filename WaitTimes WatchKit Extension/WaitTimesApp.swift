@@ -12,7 +12,7 @@ struct WaitTimesApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                WaitListView(viewModel: FacilityDataModel(location: .land))
             }
         }
     }
