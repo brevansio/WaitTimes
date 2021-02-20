@@ -11,9 +11,11 @@ import SwiftUI
 struct WaitTimesApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationView {
+            TabView {
                 WaitListView(viewModel: FacilityDataModel(location: .land))
+                WaitListView(viewModel: FacilityDataModel(location: .sea))
             }
+            .tabViewStyle(PageTabViewStyle())
         }
     }
 }
