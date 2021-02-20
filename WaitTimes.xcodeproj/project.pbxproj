@@ -17,6 +17,7 @@
 		309A167125E0B3F60019C41E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309A167025E0B3F60019C41E /* Preview Assets.xcassets */; };
 		309A168425E0B66D0019C41E /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A168325E0B66D0019C41E /* Facility.swift */; };
 		309A168925E0B6860019C41E /* OperatingHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A168825E0B6860019C41E /* OperatingHours.swift */; };
+		309A168E25E0B6BA0019C41E /* FacilityDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A168D25E0B6BA0019C41E /* FacilityDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		309A167225E0B3F60019C41E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		309A168325E0B66D0019C41E /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
 		309A168825E0B6860019C41E /* OperatingHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatingHours.swift; sourceTree = "<group>"; };
+		309A168D25E0B6BA0019C41E /* FacilityDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				309A166725E0B3F50019C41E /* ContentView.swift */,
 				309A166925E0B3F50019C41E /* WaitTimesApp.swift */,
 				309A168325E0B66D0019C41E /* Facility.swift */,
+				309A168D25E0B6BA0019C41E /* FacilityDataModel.swift */,
 				309A168825E0B6860019C41E /* OperatingHours.swift */,
 				309A166B25E0B3F50019C41E /* ComplicationController.swift */,
 				309A166D25E0B3F60019C41E /* Assets.xcassets */,
@@ -267,6 +270,7 @@
 			files = (
 				309A166825E0B3F50019C41E /* ContentView.swift in Sources */,
 				309A166A25E0B3F50019C41E /* WaitTimesApp.swift in Sources */,
+				309A168E25E0B6BA0019C41E /* FacilityDataModel.swift in Sources */,
 				309A168425E0B66D0019C41E /* Facility.swift in Sources */,
 				309A168925E0B6860019C41E /* OperatingHours.swift in Sources */,
 				309A166C25E0B3F50019C41E /* ComplicationController.swift in Sources */,
