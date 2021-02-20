@@ -8,20 +8,21 @@
 import Foundation
 import Combine
 
-class FacilityDataModel: ObservableObject {
-    enum Location {
-        case land
-        case sea
+enum Location {
+    case land
+    case sea
 
-        var url: URL {
-            switch self {
-            case .land:
-                return URL(string: "https://www.tokyodisneyresort.jp/_/realtime/tdl_attraction.json")!
-            case .sea:
-                return URL(string: "https://www.tokyodisneyresort.jp/_/realtime/tds_attraction.json")!
-            }
+    var url: URL {
+        switch self {
+        case .land:
+            return URL(string: "https://www.tokyodisneyresort.jp/_/realtime/tdl_attraction.json")!
+        case .sea:
+            return URL(string: "https://www.tokyodisneyresort.jp/_/realtime/tds_attraction.json")!
         }
     }
+}
+
+class FacilityDataModel: ObservableObject {
 
     enum State {
         case idle
