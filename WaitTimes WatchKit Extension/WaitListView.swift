@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+private extension Color {
+    static let tdlTheme = Color(.displayP3, red: 197, green: 135, blue: 164, opacity: 1)
+    static let tdsTheme = Color(.displayP3, red: 95, green: 135, blue: 141, opacity: 1)
+}
+
 struct WaitListView: View {
     @ObservedObject var viewModel: FacilityDataModel
     
@@ -17,10 +22,26 @@ struct WaitListView: View {
         case .failure(let error):
             ErrorView(error: error)
         case .loaded(let facilities):
-            LazyVGrid(columns: [GridItem(.fixed(200))]) {
-                ForEach(facilities) { facility in
-                    FacilityView()
+            ScrollView {
+                switch viewModel.location {
+                case .land:
+                    Text("Land")
+                        .font(.title3)
+                        .foregroundColor(.tdlTheme)
+                case .sea:
+                    Text("Sea")
+                        .font(.title3)
+                        .foregroundColor(.tdsTheme)
                 }
+                LazyVGrid(columns: [GridItem(.fixed(200))]) {
+                    ForEach(facilities.filter({ $0.standByTime > 0 })) { facility in
+                        FacilityView(facility: facility)
+                            .padding()
+                    }
+                }
+            }
+            .onLongPressGesture {
+                viewModel.load()
             }
         }
     }
