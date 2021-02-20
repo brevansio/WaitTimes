@@ -14,6 +14,8 @@ private extension Color {
 
 struct WaitListView: View {
     @ObservedObject var viewModel: FacilityDataModel
+
+    @State private var maxWidth: CGFloat?
     
     var body: some View {
         switch viewModel.state {
@@ -25,78 +27,81 @@ struct WaitListView: View {
             VStack {
                 Image("error")
                     .resizable()
-                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 150)
-                Text("Error: \(error.localizedDescription)")
+                    .scaledToFit()
+                    .frame(width: maxWidth)
+                Text("\(error.localizedDescription)")
+                    .font(.caption)
                     .lineLimit(2)
-                Button("Retry") {
+                    .multilineTextAlignment(.center)
+                Button("再試行する") {
                     viewModel.load()
                 }
             }
+            .background(GeometryReader { geometry in
+                Color.clear.preference(key: WidthPreferenceKey.self, value: geometry.size.width)
+            })
+            .onPreferenceChange(WidthPreferenceKey.self) {
+                maxWidth = $0
+            }
         case .loaded(let facilities):
             ScrollView {
-                switch viewModel.location {
-                case .land:
-                    Text("Land")
-                        .foregroundColor(.tdlTheme)
-                        .font(.title3)
-                        .bold()
-                case .sea:
-                    Text("Sea")
-                        .foregroundColor(.tdsTheme)
-                        .font(.title3)
-                        .bold()
-                }
+                VStack {
+                    switch viewModel.location {
+                    case .land:
+                        Text("Land")
+                            .foregroundColor(.tdlTheme)
+                            .font(.title3)
+                            .bold()
+                    case .sea:
+                        Text("Sea")
+                            .foregroundColor(.tdsTheme)
+                            .font(.title3)
+                            .bold()
+                    }
 
-                LazyVGrid(columns: [GridItem(.fixed(200))]) {
-                    ForEach(facilities) { facility in
-                        FacilityView(facility: facility)
-                            .padding()
+                    LazyVGrid(columns: [GridItem(.fixed(maxWidth ?? 0))]) {
+                        ForEach(facilities) { facility in
+                            FacilityView(facility: facility)
+                                .padding()
+                        }
+                    }
+
+                    switch viewModel.location {
+                    case .land:
+                        Button("更新") {
+                            viewModel.load()
+                        }
+                        .background(Color.tdlTheme)
+                        .cornerRadius(8)
+                        .frame(width: maxWidth)
+                    case .sea:
+                        Button("更新") {
+                            viewModel.load()
+                        }
+                        .background(Color.tdsTheme)
+                        .cornerRadius(8)
+                        .frame(width: maxWidth)
                     }
                 }
-                .padding()
-
-                switch viewModel.location {
-                case .land:
-                    Button("更新") {
-                        viewModel.load()
-                    }
-                    .buttonStyle(LandButtonStyle())
-                case .sea:
-                    Button("更新") {
-                        viewModel.load()
-                    }
-                    .buttonStyle(SeaButtonStyle())
+                .background(GeometryReader { geometry in
+                    Color.clear.preference(key: WidthPreferenceKey.self, value: geometry.size.width)
+                })
+                .onPreferenceChange(WidthPreferenceKey.self) {
+                    maxWidth = $0
                 }
             }
+
         }
     }
 }
 
-struct LandButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        HStack {
-            Spacer()
-            configuration.label
-            Spacer()
-        }
-        .padding()
-        .background(Color.tdlTheme)
-        .clipShape(Capsule())
-        .scaleEffect(configuration.isPressed ? 0.95 : 1)
-    }
-}
+extension WaitListView {
+    struct WidthPreferenceKey: PreferenceKey {
+        static let defaultValue: CGFloat = 0
 
-struct SeaButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        HStack {
-            Spacer()
-            configuration.label
-            Spacer()
+        static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+            value = max(value, nextValue())
         }
-        .padding()
-        .background(Color.tdsTheme)
-        .clipShape(Capsule())
-        .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
 }
 
