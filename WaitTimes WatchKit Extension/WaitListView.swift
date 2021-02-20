@@ -8,8 +8,8 @@
 import SwiftUI
 
 private extension Color {
-    static let tdlTheme = Color(.displayP3, red: 197, green: 135, blue: 164, opacity: 1)
-    static let tdsTheme = Color(.displayP3, red: 95, green: 135, blue: 141, opacity: 1)
+    static let tdlTheme = Color(.displayP3, red: 197 / 255, green: 135 / 255, blue: 164 / 255, opacity: 1)
+    static let tdsTheme = Color(.displayP3, red: 95 / 255, green: 135 / 255, blue: 141 / 255, opacity: 1)
 }
 
 struct WaitListView: View {
@@ -17,33 +17,86 @@ struct WaitListView: View {
     
     var body: some View {
         switch viewModel.state {
-        case .idle, .loading:
+        case .idle:
             ProgressView().onAppear(perform: { viewModel.load() })
+        case .loading:
+            ProgressView()
         case .failure(let error):
-            ErrorView(error: error)
+            VStack {
+                Image("error")
+                    .resizable()
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 150)
+                Text("Error: \(error.localizedDescription)")
+                    .lineLimit(2)
+                Button("Retry") {
+                    viewModel.load()
+                }
+            }
         case .loaded(let facilities):
             ScrollView {
                 switch viewModel.location {
                 case .land:
                     Text("Land")
-                        .font(.title3)
                         .foregroundColor(.tdlTheme)
+                        .font(.title3)
+                        .bold()
                 case .sea:
                     Text("Sea")
-                        .font(.title3)
                         .foregroundColor(.tdsTheme)
+                        .font(.title3)
+                        .bold()
                 }
+
                 LazyVGrid(columns: [GridItem(.fixed(200))]) {
-                    ForEach(facilities.filter({ $0.standByTime > 0 })) { facility in
+                    ForEach(facilities) { facility in
                         FacilityView(facility: facility)
                             .padding()
                     }
                 }
-            }
-            .onLongPressGesture {
-                viewModel.load()
+                .padding()
+
+                switch viewModel.location {
+                case .land:
+                    Button("更新") {
+                        viewModel.load()
+                    }
+                    .buttonStyle(LandButtonStyle())
+                case .sea:
+                    Button("更新") {
+                        viewModel.load()
+                    }
+                    .buttonStyle(SeaButtonStyle())
+                }
             }
         }
+    }
+}
+
+struct LandButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            Spacer()
+            configuration.label
+            Spacer()
+        }
+        .padding()
+        .background(Color.tdlTheme)
+        .clipShape(Capsule())
+        .scaleEffect(configuration.isPressed ? 0.95 : 1)
+    }
+}
+
+struct SeaButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            Spacer()
+            configuration.label
+            Spacer()
+        }
+        .padding()
+        .background(Color.tdsTheme)
+        .clipShape(Capsule())
+        .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
 }
 
