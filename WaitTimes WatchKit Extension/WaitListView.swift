@@ -60,9 +60,10 @@ struct WaitListView: View {
                     }
 
                     LazyVGrid(columns: [GridItem(.fixed(maxWidth ?? 0))]) {
-                        ForEach(facilities) { facility in
+                        ForEach(facilities.filter({ guard !filter.isEmpty else { return true }
+                                                    return $0.name.contains(filter) })) { facility in
                             FacilityView(facility: facility)
-                                .padding()
+                                .padding(.bottom, 10)
                         }
                     }
 
