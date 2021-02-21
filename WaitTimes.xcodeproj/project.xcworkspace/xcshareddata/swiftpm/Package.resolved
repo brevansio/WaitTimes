@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "String+Japanese",
+        "repositoryURL": "https://github.com/brevansio/String-Japanese.git",
+        "state": {
+          "branch": null,
+          "revision": "bc98f7b3a4a0372808e1149f47feb9b9dfda3fa6",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

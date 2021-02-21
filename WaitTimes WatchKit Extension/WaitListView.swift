@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import String_Japanese
 
 private extension Color {
     static let tdlTheme = Color(.displayP3, red: 197 / 255, green: 135 / 255, blue: 164 / 255, opacity: 1)
@@ -65,7 +66,7 @@ struct WaitListView: View {
 
                     LazyVGrid(columns: [GridItem(.fixed(maxWidth ?? 0))]) {
                         ForEach(facilities.filter({ guard !filter.isEmpty else { return true }
-                                                    return $0.name.contains(filter) })) { facility in
+                                                    return $0.kana.japaneseToKatakana().contains(filter.romajiToKatakana().japaneseToKatakana().kanjiToKatakana()) })) { facility in
                             FacilityView(facility: facility)
                                 .padding(.bottom, 10)
                         }
