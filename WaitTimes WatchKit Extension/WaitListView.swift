@@ -22,7 +22,10 @@ struct WaitListView: View {
     var body: some View {
         switch viewModel.state {
         case .idle:
-            ProgressView().onAppear(perform: { viewModel.load() })
+            ProgressView().onAppear(perform: {
+                filter = ""
+                viewModel.load()
+            })
         case .loading:
             ProgressView()
         case .failure(let error):
@@ -36,6 +39,7 @@ struct WaitListView: View {
                     .lineLimit(2)
                     .multilineTextAlignment(.center)
                 Button("再試行する") {
+                    filter = ""
                     viewModel.load()
                 }
             }
@@ -45,7 +49,7 @@ struct WaitListView: View {
             .onPreferenceChange(WidthPreferenceKey.self) {
                 maxWidth = $0
             }
-        case .loaded(let facilities):
+        case .loaded:
             ScrollView {
                 VStack {
                     HStack {
@@ -65,8 +69,7 @@ struct WaitListView: View {
                     }
 
                     LazyVGrid(columns: [GridItem(.fixed(maxWidth ?? 0))]) {
-                        ForEach(facilities.filter({ guard !filter.isEmpty else { return true }
-                                                    return $0.kana.japaneseToKatakana().contains(filter.romajiToKatakana().japaneseToKatakana().kanjiToKatakana()) })) { facility in
+                        ForEach(viewModel.filter(with: filter)) { facility in
                             FacilityView(facility: facility)
                                 .padding(.bottom, 10)
                         }
@@ -75,6 +78,7 @@ struct WaitListView: View {
                     switch viewModel.location {
                     case .land:
                         Button("更新") {
+                            filter = ""
                             viewModel.load()
                         }
                         .background(Color.tdlTheme)
@@ -82,6 +86,7 @@ struct WaitListView: View {
                         .frame(width: maxWidth)
                     case .sea:
                         Button("更新") {
+                            filter = ""
                             viewModel.load()
                         }
                         .background(Color.tdsTheme)

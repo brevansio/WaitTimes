@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import String_Japanese
 
 enum Location {
     case land
@@ -61,4 +62,19 @@ class FacilityDataModel: ObservableObject {
             .store(in: &cancellables)
     }
 
+    func filter(with filter: String) -> [Facility] {
+        guard case .loaded(let facilities) = state else { return [] }
+
+        guard !filter.isEmpty else { return facilities }
+
+        return facilities.filter {
+            $0.kana.japaneseToHiragana().contains(filter.toHiragana())
+        }
+    }
+}
+
+private extension String {
+    func toHiragana() -> String {
+        kanjiToHiragana().romajiToHiragana().japaneseToHiragana()
+    }
 }
