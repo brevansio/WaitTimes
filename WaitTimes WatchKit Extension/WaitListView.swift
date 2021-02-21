@@ -16,6 +16,7 @@ struct WaitListView: View {
     @ObservedObject var viewModel: FacilityDataModel
 
     @State private var maxWidth: CGFloat?
+    @State private var filter = ""
     
     var body: some View {
         switch viewModel.state {
@@ -46,17 +47,20 @@ struct WaitListView: View {
         case .loaded(let facilities):
             ScrollView {
                 VStack {
-                    switch viewModel.location {
-                    case .land:
-                        Text("Land")
-                            .foregroundColor(.tdlTheme)
-                            .font(.title3)
-                            .bold()
-                    case .sea:
-                        Text("Sea")
-                            .foregroundColor(.tdsTheme)
-                            .font(.title3)
-                            .bold()
+                    HStack {
+                        switch viewModel.location {
+                        case .land:
+                            Text("Land")
+                                .foregroundColor(.tdlTheme)
+                                .font(.title3)
+                                .bold()
+                        case .sea:
+                            Text("Sea")
+                                .foregroundColor(.tdsTheme)
+                                .font(.title3)
+                                .bold()
+                        }
+                        TextField("検索", text: $filter)
                     }
 
                     LazyVGrid(columns: [GridItem(.fixed(maxWidth ?? 0))]) {
