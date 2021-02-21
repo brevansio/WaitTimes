@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import class UIKit.UIImage
 
 private extension Color {
     static let mickeyRed = Color(.displayP3, red: 242 / 255, green: 5 / 255, blue: 5 / 255, opacity: 1)
@@ -18,9 +19,17 @@ struct FacilityView: View {
 
     var body: some View {
         VStack {
-            Image("\(facility.code)")
-                .resizable()
-                .cornerRadius(15.0)
+            if UIImage(named: "\(facility.code)") != nil {
+                Image("\(facility.code)")
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(15.0)
+            } else {
+                Image("missing")
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(15.0)
+            }
             VStack {
                 Text(facility.name)
                     .foregroundColor(.white)
