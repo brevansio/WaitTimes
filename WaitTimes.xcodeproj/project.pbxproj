@@ -69,7 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		309A165225E0B3F40019C41E /* WaitTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaitTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		309A165225E0B3F40019C41E /* Clockwise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clockwise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		309A165625E0B3F40019C41E /* WaitTimes WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WaitTimes WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		309A165B25E0B3F50019C41E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		309A165D25E0B3F50019C41E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		309A165325E0B3F40019C41E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				309A165225E0B3F40019C41E /* WaitTimes.app */,
+				309A165225E0B3F40019C41E /* Clockwise.app */,
 				309A165625E0B3F40019C41E /* WaitTimes WatchKit App.app */,
 				309A166225E0B3F50019C41E /* WaitTimes WatchKit Extension.appex */,
 			);
@@ -187,7 +187,7 @@
 				30EED1FF25E2522A00C9588B /* SDWebImageSwiftUI */,
 			);
 			productName = WaitTimes;
-			productReference = 309A165225E0B3F40019C41E /* WaitTimes.app */;
+			productReference = 309A165225E0B3F40019C41E /* Clockwise.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
 		309A165525E0B3F40019C41E /* WaitTimes WatchKit App */ = {
@@ -548,7 +548,7 @@
 				DEVELOPMENT_TEAM = BP6TU6N5BS;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.brevans.WaitTimes;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Clockwise;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -561,7 +561,7 @@
 				DEVELOPMENT_TEAM = BP6TU6N5BS;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.brevans.WaitTimes;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Clockwise;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
