@@ -22,14 +22,14 @@ private extension Location {
 
 class ImageDataModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
-    @Published var imageData: [ImageData] = []
+    @Published var imageData: [ImageDataSource] = []
 
     func loadImages(for location: Location) {
         URLSession.shared
             .dataTaskPublisher(for: location.imageSourceURL)
             .retry(2)
             .map(\.data)
-            .map { data -> ImageDataHolder? in
+            .map { data -> ImageDataWrapper? in
                 do {
                     let html = String(data: data, encoding: .utf8)!
                     let document = try SwiftSoup.parse(html)
@@ -44,7 +44,7 @@ class ImageDataModel: ObservableObject {
                     }
                     let jsonString = String(javaScriptString[startIndex..<endIndex])
                     let jsonData = jsonString.data(using: .utf8)!
-                    return try JSONDecoder().decode(ImageDataHolder.self, from: jsonData)
+                    return try JSONDecoder().decode(ImageDataWrapper.self, from: jsonData)
                 } catch {
                     return nil
                 }
@@ -60,22 +60,5 @@ class ImageDataModel: ObservableObject {
                 }
             })
             .store(in: &cancellables)
-    }
-}
-
-struct ImageDataHolder: Codable {
-    var results: [ImageData]?
-    var totalCount: Int?
-}
-
-struct ImageData: Codable {
-    let name: String?
-    let thumbnailURL: String?
-    let detailURL: String?
-
-    enum CodingKeys: String, CodingKey {
-        case name
-        case thumbnailURL = "thum_name"
-        case detailURL = "detail_url"
     }
 }

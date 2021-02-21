@@ -23,6 +23,7 @@
 		30EED1E625E22E4100C9588B /* ImageDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EED1E525E22E4100C9588B /* ImageDataModel.swift */; };
 		30EED1F025E22FE100C9588B /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 30EED1EF25E22FE100C9588B /* SwiftSoup */; };
 		30EED20425E2523800C9588B /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 30EED20325E2523800C9588B /* SDWebImageSwiftUI */; };
+		30EED20C25E2552E00C9588B /* ImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EED20B25E2552E00C9588B /* ImageDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		309A168D25E0B6BA0019C41E /* FacilityDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityDataModel.swift; sourceTree = "<group>"; };
 		309A16A025E0BFB20019C41E /* FacilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityView.swift; sourceTree = "<group>"; };
 		30EED1E525E22E4100C9588B /* ImageDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataModel.swift; sourceTree = "<group>"; };
+		30EED20B25E2552E00C9588B /* ImageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,17 +134,18 @@
 		309A166625E0B3F50019C41E /* WaitTimes WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				309A166725E0B3F50019C41E /* WaitListView.swift */,
-				309A16A025E0BFB20019C41E /* FacilityView.swift */,
-				309A166925E0B3F50019C41E /* WaitTimesApp.swift */,
+				309A166D25E0B3F60019C41E /* Assets.xcassets */,
+				309A166B25E0B3F50019C41E /* ComplicationController.swift */,
 				309A168325E0B66D0019C41E /* Facility.swift */,
 				309A168D25E0B6BA0019C41E /* FacilityDataModel.swift */,
+				309A16A025E0BFB20019C41E /* FacilityView.swift */,
 				30EED1E525E22E4100C9588B /* ImageDataModel.swift */,
-				309A168825E0B6860019C41E /* OperatingHours.swift */,
-				309A166B25E0B3F50019C41E /* ComplicationController.swift */,
-				309A166D25E0B3F60019C41E /* Assets.xcassets */,
+				30EED20B25E2552E00C9588B /* ImageDataSource.swift */,
 				309A167225E0B3F60019C41E /* Info.plist */,
+				309A168825E0B6860019C41E /* OperatingHours.swift */,
 				309A166F25E0B3F60019C41E /* Preview Content */,
+				309A166725E0B3F50019C41E /* WaitListView.swift */,
+				309A166925E0B3F50019C41E /* WaitTimesApp.swift */,
 			);
 			path = "WaitTimes WatchKit Extension";
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30EED20C25E2552E00C9588B /* ImageDataSource.swift in Sources */,
 				309A166825E0B3F50019C41E /* WaitListView.swift in Sources */,
 				309A166A25E0B3F50019C41E /* WaitTimesApp.swift in Sources */,
 				309A168E25E0B6BA0019C41E /* FacilityDataModel.swift in Sources */,
@@ -449,6 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"WaitTimes WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = BP6TU6N5BS;
 				ENABLE_PREVIEWS = YES;
@@ -473,6 +478,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"WaitTimes WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = BP6TU6N5BS;
 				ENABLE_PREVIEWS = YES;
@@ -499,6 +505,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BP6TU6N5BS;
 				IBSC_MODULE = WaitTimes_WatchKit_Extension;
 				INFOPLIST_FILE = "WaitTimes WatchKit App/Info.plist";
@@ -519,6 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BP6TU6N5BS;
 				IBSC_MODULE = WaitTimes_WatchKit_Extension;
 				INFOPLIST_FILE = "WaitTimes WatchKit App/Info.plist";
@@ -536,7 +544,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BP6TU6N5BS;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.brevans.WaitTimes;
@@ -549,7 +557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BP6TU6N5BS;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.brevans.WaitTimes;
