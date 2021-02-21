@@ -26,10 +26,25 @@ struct FacilityView: View {
                     .foregroundColor(.mickeyYellow)
                     .font(.subheadline)
                     .lineLimit(2)
-                if facility.standByTime > 0 {
-                    Text("\(facility.standByTime)分")
-                        .foregroundColor(.mickeyYellow)
-                        .font(.headline)
+                HStack {
+                    if let operatingStatus = facility.operatingStatus {
+                        Text(operatingStatus)
+                            .foregroundColor(.mickeyYellow)
+                            .font(.headline)
+                            .bold()
+                            .frame(alignment: .leading)
+                            .padding()
+                        Spacer()
+                    }
+                    if facility.standByTime > 0 {
+                        Spacer()
+                        Text("\(facility.standByTime)分待ち")
+                            .foregroundColor(.mickeyYellow)
+                            .font(.headline)
+                            .bold()
+                            .frame(alignment: .trailing)
+                            .padding()
+                    }
                 }
             }
         }
