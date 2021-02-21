@@ -20,6 +20,9 @@
 		309A168E25E0B6BA0019C41E /* FacilityDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A168D25E0B6BA0019C41E /* FacilityDataModel.swift */; };
 		309A16A125E0BFB20019C41E /* FacilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A16A025E0BFB20019C41E /* FacilityView.swift */; };
 		30EED1E125E20BB300C9588B /* String+Japanese in Frameworks */ = {isa = PBXBuildFile; productRef = 30EED1E025E20BB300C9588B /* String+Japanese */; };
+		30EED1E625E22E4100C9588B /* ImageDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EED1E525E22E4100C9588B /* ImageDataModel.swift */; };
+		30EED1F025E22FE100C9588B /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 30EED1EF25E22FE100C9588B /* SwiftSoup */; };
+		30EED20425E2523800C9588B /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 30EED20325E2523800C9588B /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,7 @@
 		309A168825E0B6860019C41E /* OperatingHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatingHours.swift; sourceTree = "<group>"; };
 		309A168D25E0B6BA0019C41E /* FacilityDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityDataModel.swift; sourceTree = "<group>"; };
 		309A16A025E0BFB20019C41E /* FacilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityView.swift; sourceTree = "<group>"; };
+		30EED1E525E22E4100C9588B /* ImageDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +91,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30EED20425E2523800C9588B /* SDWebImageSwiftUI in Frameworks */,
 				30EED1E125E20BB300C9588B /* String+Japanese in Frameworks */,
+				30EED1F025E22FE100C9588B /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +137,7 @@
 				309A166925E0B3F50019C41E /* WaitTimesApp.swift */,
 				309A168325E0B66D0019C41E /* Facility.swift */,
 				309A168D25E0B6BA0019C41E /* FacilityDataModel.swift */,
+				30EED1E525E22E4100C9588B /* ImageDataModel.swift */,
 				309A168825E0B6860019C41E /* OperatingHours.swift */,
 				309A166B25E0B3F50019C41E /* ComplicationController.swift */,
 				309A166D25E0B3F60019C41E /* Assets.xcassets */,
@@ -173,6 +180,8 @@
 			name = WaitTimes;
 			packageProductDependencies = (
 				30EED1DB25E20A9C00C9588B /* String+Japanese */,
+				30EED1EB25E22E6600C9588B /* SwiftSoup */,
+				30EED1FF25E2522A00C9588B /* SDWebImageSwiftUI */,
 			);
 			productName = WaitTimes;
 			productReference = 309A165225E0B3F40019C41E /* WaitTimes.app */;
@@ -210,6 +219,8 @@
 			name = "WaitTimes WatchKit Extension";
 			packageProductDependencies = (
 				30EED1E025E20BB300C9588B /* String+Japanese */,
+				30EED1EF25E22FE100C9588B /* SwiftSoup */,
+				30EED20325E2523800C9588B /* SDWebImageSwiftUI */,
 			);
 			productName = "WaitTimes WatchKit Extension";
 			productReference = 309A166225E0B3F50019C41E /* WaitTimes WatchKit Extension.appex */;
@@ -246,6 +257,8 @@
 			mainGroup = 309A164B25E0B3F40019C41E;
 			packageReferences = (
 				30EED1DA25E20A9B00C9588B /* XCRemoteSwiftPackageReference "String-Japanese" */,
+				30EED1EA25E22E6600C9588B /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				30EED1FE25E2522A00C9588B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 309A165325E0B3F40019C41E /* Products */;
 			projectDirPath = "";
@@ -295,6 +308,7 @@
 				309A168E25E0B6BA0019C41E /* FacilityDataModel.swift in Sources */,
 				309A168425E0B66D0019C41E /* Facility.swift in Sources */,
 				309A16A125E0BFB20019C41E /* FacilityView.swift in Sources */,
+				30EED1E625E22E4100C9588B /* ImageDataModel.swift in Sources */,
 				309A168925E0B6860019C41E /* OperatingHours.swift in Sources */,
 				309A166C25E0B3F50019C41E /* ComplicationController.swift in Sources */,
 			);
@@ -594,6 +608,22 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		30EED1EA25E22E6600C9588B /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.2;
+			};
+		};
+		30EED1FE25E2522A00C9588B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -606,6 +636,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 30EED1DA25E20A9B00C9588B /* XCRemoteSwiftPackageReference "String-Japanese" */;
 			productName = "String+Japanese";
+		};
+		30EED1EB25E22E6600C9588B /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30EED1EA25E22E6600C9588B /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		30EED1EF25E22FE100C9588B /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30EED1EA25E22E6600C9588B /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		30EED1FF25E2522A00C9588B /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30EED1FE25E2522A00C9588B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		30EED20325E2523800C9588B /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30EED1FE25E2522A00C9588B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

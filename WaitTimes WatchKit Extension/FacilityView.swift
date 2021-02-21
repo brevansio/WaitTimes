@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import class UIKit.UIImage
+import SDWebImage
+import SDWebImageSwiftUI
 
 private extension Color {
     static let mickeyRed = Color(.displayP3, red: 242 / 255, green: 5 / 255, blue: 5 / 255, opacity: 1)
@@ -15,21 +16,21 @@ private extension Color {
 }
 
 struct FacilityView: View {
+
+    @EnvironmentObject var imageDataModel: ImageDataModel
+
     var facility: Facility
 
     var body: some View {
         VStack {
-            if UIImage(named: "\(facility.code)") != nil {
-                Image("\(facility.code)")
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(15.0)
-            } else {
-                Image("missing")
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(15.0)
-            }
+            WebImage(url: URL(string: imageDataModel.imageData.first(where: { $0.detailURL?.contains("\(facility.code)") == true })?.thumbnailURL ?? ""))
+                .placeholder {
+                    Image("missing")
+                        .resizable()
+                        .scaledToFit()
+                }
+                .resizable()
+                .scaledToFit()
             VStack {
                 Text(facility.name)
                     .foregroundColor(.white)
