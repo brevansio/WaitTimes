@@ -1,5 +1,5 @@
 //
-//  ImageDataModel.swift
+//  ImageNetworkModel.swift
 //  WaitTimes WatchKit Extension
 //
 //  Created by Bruce Evans on 2021/02/21.
@@ -20,7 +20,7 @@ private extension Location {
     }
 }
 
-class ImageDataModel: ObservableObject {
+class ImageNetworkModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     @Published var imageData: [ImageDataSource] = []
 

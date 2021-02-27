@@ -17,7 +17,7 @@ private extension Color {
 
 struct FacilityView: View {
 
-    @EnvironmentObject var imageDataModel: ImageDataModel
+    @EnvironmentObject var imageDataModel: ImageNetworkModel
 
     var facility: Facility
 

@@ -1,5 +1,5 @@
 //
-//  FacilityDataModel.swift
+//  FacilityNetworkModel.swift
 //  WaitTimes WatchKit Extension
 //
 //  Created by Bruce Evans on 2021/02/20.
@@ -23,7 +23,7 @@ enum Location {
     }
 }
 
-class FacilityDataModel: ObservableObject {
+class FacilityNetworkModel: ObservableObject {
 
     enum State {
         case idle

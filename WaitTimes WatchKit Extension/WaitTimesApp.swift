@@ -11,18 +11,18 @@ import SwiftUI
 struct WaitTimesApp: App {
     @Environment(\.scenePhase) private var scenePhase
 
-    var landImageDataModel = ImageDataModel()
-    var seaImageDataModel = ImageDataModel()
+    var landImageDataModel = ImageNetworkModel()
+    var seaImageDataModel = ImageNetworkModel()
 
-    var landFacilityDataModel = FacilityDataModel(location: .land)
-    var seaFacilityDataModel = FacilityDataModel(location: .sea)
+    @StateObject var landModel = FacilityNetworkModel(location: .land)
+    @StateObject var seaModel = FacilityNetworkModel(location: .sea)
 
 
     var body: some Scene {
         WindowGroup {
             TabView {
-                WaitListView(viewModel: landFacilityDataModel).environmentObject(landImageDataModel)
-                WaitListView(viewModel: seaFacilityDataModel).environmentObject(seaImageDataModel)
+                LoadingView(viewModel: landModel).environmentObject(landImageDataModel)
+                LoadingView(viewModel: seaModel).environmentObject(seaImageDataModel)
             }
             .tabViewStyle(PageTabViewStyle())
             .onAppear(perform: {
@@ -31,8 +31,16 @@ struct WaitTimesApp: App {
             })
             .onChange(of: scenePhase, perform: { newPhase in
                 if newPhase == .active {
-                    landFacilityDataModel.load()
-                    seaFacilityDataModel.load()
+                    landModel.load()
+                    seaModel.load()
+
+                    if landImageDataModel.imageData.isEmpty {
+                        landImageDataModel.loadImages(for: .land)
+                    }
+
+                    if seaImageDataModel.imageData.isEmpty {
+                        seaImageDataModel.loadImages(for: .sea)
+                    }
                 }
             })
         }
