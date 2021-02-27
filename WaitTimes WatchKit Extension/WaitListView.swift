@@ -29,25 +29,9 @@ struct WaitListView: View {
         case .loading:
             ProgressView()
         case .failure(let error):
-            VStack {
-                Image("error")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: maxWidth)
-                Text("\(error.localizedDescription)")
-                    .font(.caption)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.center)
-                Button("再試行する") {
-                    filter = ""
-                    viewModel.load()
-                }
-            }
-            .background(GeometryReader { geometry in
-                Color.clear.preference(key: WidthPreferenceKey.self, value: geometry.size.width)
-            })
-            .onPreferenceChange(WidthPreferenceKey.self) {
-                maxWidth = $0
+            ErrorView(error: error) {
+                filter = ""
+                viewModel.load()
             }
         case .loaded:
             ScrollView {
