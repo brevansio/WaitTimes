@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		30605C1925EA2B9E0044114D /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30605C1825EA2B9E0044114D /* ErrorView.swift */; };
+		30605C2125EA309F0044114D /* WaitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30605C2025EA309F0044114D /* WaitListView.swift */; };
 		309A165725E0B3F40019C41E /* WaitTimes WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 309A165625E0B3F40019C41E /* WaitTimes WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		309A165C25E0B3F50019C41E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309A165B25E0B3F50019C41E /* Assets.xcassets */; };
 		309A166325E0B3F50019C41E /* WaitTimes WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 309A166225E0B3F50019C41E /* WaitTimes WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		309A166825E0B3F50019C41E /* WaitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A166725E0B3F50019C41E /* WaitListView.swift */; };
+		309A166825E0B3F50019C41E /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A166725E0B3F50019C41E /* LoadingView.swift */; };
 		309A166A25E0B3F50019C41E /* WaitTimesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A166925E0B3F50019C41E /* WaitTimesApp.swift */; };
 		309A166C25E0B3F50019C41E /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A166B25E0B3F50019C41E /* ComplicationController.swift */; };
 		309A166E25E0B3F60019C41E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309A166D25E0B3F60019C41E /* Assets.xcassets */; };
@@ -71,12 +72,13 @@
 
 /* Begin PBXFileReference section */
 		30605C1825EA2B9E0044114D /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		30605C2025EA309F0044114D /* WaitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitListView.swift; sourceTree = "<group>"; };
 		309A165225E0B3F40019C41E /* Clockwise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clockwise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		309A165625E0B3F40019C41E /* WaitTimes WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WaitTimes WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		309A165B25E0B3F50019C41E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		309A165D25E0B3F50019C41E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		309A166225E0B3F50019C41E /* WaitTimes WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WaitTimes WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		309A166725E0B3F50019C41E /* WaitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitListView.swift; sourceTree = "<group>"; };
+		309A166725E0B3F50019C41E /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		309A166925E0B3F50019C41E /* WaitTimesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTimesApp.swift; sourceTree = "<group>"; };
 		309A166B25E0B3F50019C41E /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		309A166D25E0B3F60019C41E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,9 +147,10 @@
 				30EED1E525E22E4100C9588B /* ImageDataModel.swift */,
 				30EED20B25E2552E00C9588B /* ImageDataSource.swift */,
 				309A167225E0B3F60019C41E /* Info.plist */,
+				309A166725E0B3F50019C41E /* LoadingView.swift */,
 				309A168825E0B6860019C41E /* OperatingHours.swift */,
 				309A166F25E0B3F60019C41E /* Preview Content */,
-				309A166725E0B3F50019C41E /* WaitListView.swift */,
+				30605C2025EA309F0044114D /* WaitListView.swift */,
 				309A166925E0B3F50019C41E /* WaitTimesApp.swift */,
 			);
 			path = "WaitTimes WatchKit Extension";
@@ -310,9 +313,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				30EED20C25E2552E00C9588B /* ImageDataSource.swift in Sources */,
-				309A166825E0B3F50019C41E /* WaitListView.swift in Sources */,
+				309A166825E0B3F50019C41E /* LoadingView.swift in Sources */,
 				309A166A25E0B3F50019C41E /* WaitTimesApp.swift in Sources */,
 				309A168E25E0B6BA0019C41E /* FacilityDataModel.swift in Sources */,
+				30605C2125EA309F0044114D /* WaitListView.swift in Sources */,
 				309A168425E0B66D0019C41E /* Facility.swift in Sources */,
 				30605C1925EA2B9E0044114D /* ErrorView.swift in Sources */,
 				309A16A125E0BFB20019C41E /* FacilityView.swift in Sources */,
